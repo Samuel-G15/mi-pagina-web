@@ -10,7 +10,7 @@ exports.handler = async (event, context) => {
     let transporter = nodemailer.createTransport({
         service: 'Gmail',
         auth: {
-            user: 'samuelgatica92gmail.com',  // Reemplaza con tu correo
+            user: 'samuelgatica92@gmail.com',  // Reemplaza con tu correo
             pass: 'mhmavrarcdkndhvu'         // Reemplaza con tu contraseña
         }
     });
