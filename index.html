@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mi Página Web - Instalador de Muebles y Carpintería</title>
+    <meta name="description" content="Descubre información sobre mi mundo en mi página web. Encuentra contenido relevante y útil sobre diversos temas, incluyendo instalación de muebles, amoblamientos, carpintería y mucho más.">
+    <meta name="keywords" content="Instalador, Instalador de muebles, amoblamientos, carpinteria, el mejor instalador, muebles de cocina">
+    <link rel="stylesheet" href="styles.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <header>
+        <h1>Bienvenido a Mi Página Web</h1>
+        <nav>
+            <ul>
+                <li><a href="#home">Inicio</a></li>
+                <li><a href="#about">Sobre Mí</a></li>
+                <li><a href="#gallery">Galería</a></li>
+                <li><a href="#contact">Contacto</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section id="home">
+            <h2>Inicio</h2>
+            <p>Bienvenido a mi sitio web de instalación de muebles, amoblamientos y carpintería. Aquí encontrarás información útil y relevante sobre cómo contratar al mejor instalador para tus necesidades.</p>
+        </section>
+        <section id="about">
+            <h2>Sobre Mí</h2>
+            <p>Con más de 10 años de experiencia en la instalación de muebles y carpintería, soy el mejor instalador para tus proyectos de muebles de cocina y amoblamientos.</p>
+        </section>
+        <section id="gallery">
+            <h2>Galería</h2>
+            <div class="slider">
+                <div class="slides">
+                    <div class="slide"><img src="images/imagen1.jpg" alt="Descripción de la Imagen 1"></div>
+                    <div class="slide"><img src="images/imagen2.jpg" alt="Descripción de la Imagen 2"></div>
+                    <div class="slide"><img src="images/imagen3.jpg" alt="Descripción de la Imagen 3"></div>
+                </div>
+            </div>
+        </section>
+        <section id="contact">
+            <h2>Contacto</h2>
+            <form id="contact-form" name="contact" method="POST" data-netlify="true">
+                <input type="hidden" name="form-name" value="contact">
+                <label for="name">Nombre:</label>
+                <input type="text" id="name" name="name" required>
+                <label for="email">Correo Electrónico:</label>
+                <input type="email" id="email" name="email" required>
+                <label for="message">Mensaje:</label>
+                <textarea id="message" name="message" required></textarea>
+                <button type="submit">Enviar</button>
+            </form>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2025 Mi Página Web - Instalador de Muebles y Carpintería</p>
+    </footer>
+</body>
+</html>
