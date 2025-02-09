@@ -6,12 +6,14 @@
     <title>Mi Página Web - Instalador de Muebles y Carpintería</title>
     <meta name="description" content="Descubre información sobre mi mundo en mi página web. Encuentra contenido relevante y útil sobre diversos temas, incluyendo instalación de muebles, amoblamientos, carpintería y mucho más.">
     <meta name="keywords" content="Instalador, Instalador de muebles, amoblamientos, carpinteria, el mejor instalador, muebles de cocina">
+    <meta name="robots" content="index, follow">
+    <meta name="author" content="Tu Nombre">
     <link rel="stylesheet" href="styles.css">
     <script src="script.js" defer></script>
 </head>
 <body>
     <header>
-        <h1>Bienvenido a Mi Página Web</h1>
+        <h1>SG Instalaciones</h1>
         <nav>
             <ul>
                 <li><a href="#home">Inicio</a></li>
@@ -42,11 +44,8 @@
         </section>
         <section id="contact">
             <h2>Contacto</h2>
-            <form id="contact-form" name="contact" method="POST" data-netlify="true" data-netlify-honeypot="bot-field" netlify>
+            <form id="contact-form" name="contact" method="POST" data-netlify="true" data-netlify-honeypot="bot-field" action="/.netlify/functions/send-email">
                 <input type="hidden" name="form-name" value="contact">
-                <p hidden>
-                    <label>Don’t fill this out: <input name="bot-field" /></label>
-                </p>
                 <label for="name">Nombre:</label>
                 <input type="text" id="name" name="name" required>
                 <label for="email">Correo Electrónico:</label>

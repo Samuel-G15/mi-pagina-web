@@ -1,5 +1,3 @@
-// script.js
-
 document.addEventListener("DOMContentLoaded", function() {
     console.log("Página cargada correctamente.");
 
@@ -8,7 +6,7 @@ document.addEventListener("DOMContentLoaded", function() {
         event.preventDefault();
         const formData = new FormData(form);
         const formObject = Object.fromEntries(formData);
-        
+
         try {
             const response = await fetch('/.netlify/functions/send-email', {
                 method: 'POST',
@@ -20,8 +18,6 @@ document.addEventListener("DOMContentLoaded", function() {
             console.error('Error:', error);
             alert('Hubo un error al enviar el formulario. Por favor, intenta de nuevo.');
         }
-
-        form.reset();
     });
 
     // Funcionalidad del slider

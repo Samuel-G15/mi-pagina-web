@@ -1,0 +1,15 @@
+{
+  "name": "mi-pagina-web",
+  "version": "1.0.0",
+  "description": "Proyecto de ejemplo para enviar correos",
+  "main": "script.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "Samuel Gatica",
+  "license": "ISC",
+  "dependencies": {
+    "nodemailer": "^6.10.0"
+  }
+}

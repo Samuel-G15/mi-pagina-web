@@ -117,3 +117,9 @@ footer {
         width: 90%;
     }
 }
+
+/* Agregar imágenes responsivas */
+img {
+    max-width: 100%;
+    height: auto;
+}
