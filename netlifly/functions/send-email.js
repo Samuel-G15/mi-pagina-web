@@ -10,15 +10,15 @@ exports.handler = async (event, context) => {
     let transporter = nodemailer.createTransport({
         service: 'Gmail',
         auth: {
-            user: 'tu_correo@gmail.com',  // Reemplaza con tu correo
-            pass: 'tu_contraseña'         // Reemplaza con tu contraseña
+            user: 'samuelgatica92gmail.com',  // Reemplaza con tu correo
+            pass: 'mhmavrarcdkndhvu'         // Reemplaza con tu contraseña
         }
     });
 
     // Configura el correo electrónico
     let mailOptions = {
-        from: 'tu_correo@gmail.com',     // Reemplaza con tu correo
-        to: 'tu_correo@gmail.com',       // Reemplaza con tu correo o destinatario
+        from: 'samuelgatica92@gmail.com',     // Reemplaza con tu correo
+        to: 'samuelgatica92@gmail.com',       // Reemplaza con tu correo o destinatario
         subject: 'Nueva Consulta del Formulario',
         text: `Nombre: ${name}\nCorreo Electrónico: ${email}\nMensaje: ${message}`
     };
