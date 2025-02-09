@@ -2,4 +2,4 @@ User-agent: *
 Disallow: /admin/
 Allow: /
 
-Sitemap: https://www.tusitio.com/sitemap.xml
+Sitemap: https://mi-sitio-web.netlify.app/sitemap.xml
