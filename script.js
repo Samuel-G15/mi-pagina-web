@@ -10,10 +10,17 @@ document.addEventListener("DOMContentLoaded", function() {
         try {
             const response = await fetch('/.netlify/functions/send-email', {
                 method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(formObject)
             });
-            const result = await response.json();
-            alert(result.message || 'Formulario enviado correctamente.');
+
+            if (response.ok) {
+                const result = await response.json();
+                alert(result.message || 'Formulario enviado correctamente.');
+            } else {
+                const errorResult = await response.json();
+                alert(errorResult.message || 'Hubo un error al enviar el formulario. Por favor, intenta de nuevo.');
+            }
         } catch (error) {
             console.error('Error:', error);
             alert('Hubo un error al enviar el formulario. Por favor, intenta de nuevo.');
