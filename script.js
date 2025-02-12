@@ -1,44 +1,45 @@
 document.addEventListener("DOMContentLoaded", function() {
-    console.log("Página cargada correctamente.");
+    let slideIndex = 0;
+    const slides = document.querySelectorAll(".slide");
+    showSlides(slideIndex);
 
     const form = document.getElementById("contact-form");
-    form.addEventListener("submit", async function(event) {
+    form.addEventListener("submit", function(event) {
         event.preventDefault();
-        const formData = new FormData(form);
-        const formObject = Object.fromEntries(formData);
-
-        try {
-            const response = await fetch('/.netlify/functions/send-email', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify(formObject)
-            });
-
-            if (response.ok) {
-                const result = await response.json();
-                alert(result.message || 'Formulario enviado correctamente.');
-            } else {
-                const errorResult = await response.json();
-                alert(errorResult.message || 'Hubo un error al enviar el formulario. Por favor, intenta de nuevo.');
-            }
-        } catch (error) {
-            console.error('Error:', error);
-            alert('Hubo un error al enviar el formulario. Por favor, intenta de nuevo.');
-        }
+        fetch("/", {
+            method: "POST",
+            headers: { "Content-Type": "application/x-www-form-urlencoded" },
+            body: new URLSearchParams(new FormData(event.target)).toString()
+        })
+        .then(() => alert("Formulario enviado exitosamente."))
+        .catch(error => alert("Error al enviar el formulario: " + error));
     });
 
-    // Funcionalidad del slider
-    const slides = document.querySelector(".slides");
-    const slide = document.querySelectorAll(".slide");
-    let index = 0;
-
-    function showNextSlide() {
-        index++;
-        if (index >= slide.length) {
-            index = 0;
-        }
-        slides.style.transform = `translateX(${-index * 100}%)`;
+    function moveSlide(n) {
+        slideIndex += n;
+        if (slideIndex >= slides.length) { slideIndex = 0; }
+        if (slideIndex < 0) { slideIndex = slides.length - 1; }
+        showSlides(slideIndex);
     }
 
-    setInterval(showNextSlide, 3000);
+    function showSlides(index) {
+        slides.forEach((slide, i) => {
+            slide.style.display = (i === index) ? "block" : "none";
+        });
+    }
+
+    function autoSlide() {
+        moveSlide(1);
+        setTimeout(autoSlide, 5000); // Cambia de imagen cada 5 segundos
+    }
+
+    document.querySelector(".prev").addEventListener("click", function() {
+        moveSlide(-1);
+    });
+
+    document.querySelector(".next").addEventListener("click", function() {
+        moveSlide(1);
+    });
+
+    autoSlide();
 });

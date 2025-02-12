@@ -1,22 +1,14 @@
-/* styles.css */
-
-/* Reset de estilos predeterminados del navegador */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
 body {
     font-family: Arial, sans-serif;
-    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
 }
 
-/* Encabezado */
 header {
-    background-color: #4CAF50;
+    background-color: #333;
     color: white;
-    padding: 20px 10px;
+    padding: 1em 0;
     text-align: center;
 }
 
@@ -27,8 +19,8 @@ nav ul {
 }
 
 nav ul li {
-    display: inline-block;
-    margin-right: 15px;
+    display: inline;
+    margin-right: 1em;
 }
 
 nav ul li a {
@@ -36,17 +28,18 @@ nav ul li a {
     text-decoration: none;
 }
 
-/* Contenido principal */
 main {
-    padding: 20px;
+    padding: 2em;
 }
 
-/* Slider */
+section {
+    margin-bottom: 2em;
+}
+
 .slider {
-    width: 100%;
-    max-width: 600px;
-    margin: 20px auto;
     position: relative;
+    max-width: 50%;
+    margin: auto;
     overflow: hidden;
 }
 
@@ -62,64 +55,99 @@ main {
 
 .slide img {
     width: 100%;
+    height: auto;
     display: block;
+    margin: 0 auto;
+    max-height: 400px;
 }
 
-/* Sección de contacto */
+.prev, .next {
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    width: auto;
+    padding: 16px;
+    margin-top: -22px;
+    color: white;
+    font-weight: bold;
+    font-size: 18px;
+    transition: background-color 0.6s ease;
+    border-radius: 0 3px 3px 0;
+    user-select: none;
+}
+
+.next {
+    right: 0;
+    border-radius: 3px 0 0 3px;
+}
+
+.prev:hover, .next:hover {
+    background-color: rgba(0,0,0,0.8);
+}
+
+footer {
+    text-align: center;
+    padding: 1em 0;
+    background-color: #333;
+    color: white;
+}
+
+/* Estilos del formulario */
 form {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
     max-width: 600px;
-    margin: 20px auto;
+    margin: auto;
+    font-family: 'Arial', sans-serif;
 }
 
 form label {
-    font-weight: bold;
+    display: block;
+    margin-bottom: 8px;
+    color: #333;
 }
 
-form input, form textarea {
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
+form input[type="text"],
+form input[type="email"],
+form textarea {
     width: 100%;
+    padding: 12px;
+    margin-bottom: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
 }
 
 form button {
-    padding: 10px;
-    background-color: #4CAF50;
-    color: white;
+    background-color: #333;
+    color: #fff;
+    padding: 14px 20px;
     border: none;
-    border-radius: 5px;
+    border-radius: 4px;
     cursor: pointer;
+    font-size: 16px;
+    font-family: 'Arial', sans-serif;
 }
 
 form button:hover {
-    background-color: #45a049;
+    background-color: #555;
 }
 
-/* Pie de página */
-footer {
-    background-color: #333;
-    color: white;
+/* Estilo adicional para hacer el formulario más atractivo */
+form .form-group {
+    margin-bottom: 20px;
+}
+
+form .form-group label {
+    font-weight: bold;
+}
+
+form .form-title {
+    font-size: 24px;
+    margin-bottom: 20px;
     text-align: center;
-    padding: 10px 0;
-}
-
-/* Estilos responsivos */
-@media (max-width: 768px) {
-    nav ul li {
-        display: block;
-        margin: 10px 0;
-    }
-
-    form {
-        width: 90%;
-    }
-}
-
-/* Agregar imágenes responsivas */
-img {
-    max-width: 100%;
-    height: auto;
+    color: #333;
 }
