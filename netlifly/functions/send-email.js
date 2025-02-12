@@ -9,7 +9,7 @@ exports.handler = async (event, context) => {
             service: 'Gmail',
             auth: {
                 user: 'samuelgatica92@gmail.com', // Reemplaza con tu correo de Gmail
-                pass: 'mhmavrarcdkndhvu'        // Reemplaza con tu contraseña de Gmail
+                pass: 'Samuelg-0624'        // Reemplaza con tu contraseña de Gmail
             }
         });
 
