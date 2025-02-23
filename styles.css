@@ -1,153 +1,263 @@
+:root {
+    --primary-color: #3d5a80;
+    --secondary-color: #f0f0f0;
+    --text-color: #333;
+    --font-family: 'Arial', sans-serif;
+}
+
 body {
-    font-family: Arial, sans-serif;
+    font-family: var(--font-family);
     margin: 0;
     padding: 0;
-    background-color: #f4f4f4;
+    background-color: var(--secondary-color);
+    color: var(--text-color);
 }
 
 header {
-    background-color: #333;
-    color: white;
-    padding: 1em 0;
+    background-color: var(--primary-color);
+    color: #fff;
+    padding: 1rem 0;
     text-align: center;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+header h1 {
+    margin: 0;
 }
 
 nav ul {
-    list-style-type: none;
+    list-style: none;
+    margin: 0;
     padding: 0;
-    text-align: center;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
 }
 
 nav ul li {
-    display: inline;
-    margin-right: 1em;
+    margin: 0.5rem 1rem;
 }
 
 nav ul li a {
-    color: white;
+    color: #fff;
     text-decoration: none;
+    font-size: 1.2rem;
+    transition: color 0.3s ease;
 }
 
-main {
-    padding: 2em;
+nav ul li a:hover {
+    color: #ffdd57;
+    text-decoration: underline;
 }
 
 section {
-    margin-bottom: 2em;
+    padding: 2rem 1rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin-bottom: 2rem;
+}
+
+section h2 {
+    color: var(--primary-color);
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+section p {
+    line-height: 1.6;
+}
+
+/* Estilos de la galería */
+.gallery {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.box {
+    position: relative;
+    width: 48%;
+    margin-bottom: 1rem;
+    overflow: hidden;
+    border: 2px solid var(--primary-color);
+    border-radius: 10px;
+    height: 300px;
+    cursor: pointer;
+}
+
+@media (max-width: 768px) {
+    .box {
+        width: 100%;
+    }
+}
+
+.box .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 1;
+    transition: opacity 0.5s ease;
+}
+
+.box .overlay.hidden {
+    opacity: 0;
+}
+
+.overlay {
+    position: absolute; /* Asegura que el overlay se mantenga en su lugar */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 1;
+    transition: opacity 0.5s ease;
+}
+
+.overlay.hidden {
+    opacity: 0;
+}
+
+.overlay h2 {
+    position: absolute;
+    top: 10px; /* Ajusta según sea necesario */
+    left: 10px; /* Ajusta según sea necesario */
+    z-index: 10; /* Asegura que el título esté por encima de la imagen */
+    background-color: rgba(255, 255, 255, 0.7); /* Fondo semi-transparente para mejor visibilidad */
+    padding: 5px;
+    border-radius: 5px;
 }
 
 .slider {
     position: relative;
-    max-width: 50%;
-    margin: auto;
+    width: 100%;
+    height: 100%;
     overflow: hidden;
 }
 
-.slides {
-    display: flex;
-    transition: transform 0.5s ease-in-out;
+.slider img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
 
 .slide {
-    min-width: 100%;
-    box-sizing: border-box;
-}
-
-.slide img {
-    width: 100%;
-    height: auto;
-    display: block;
-    margin: 0 auto;
-    max-height: 400px;
-}
-
-.prev, .next {
-    cursor: pointer;
     position: absolute;
-    top: 50%;
-    width: auto;
-    padding: 16px;
-    margin-top: -22px;
-    color: white;
-    font-weight: bold;
-    font-size: 18px;
-    transition: background-color 0.6s ease;
-    border-radius: 0 3px 3px 0;
-    user-select: none;
-}
-
-.next {
-    right: 0;
-    border-radius: 3px 0 0 3px;
-}
-
-.prev:hover, .next:hover {
-    background-color: rgba(0,0,0,0.8);
-}
-
-footer {
-    text-align: center;
-    padding: 1em 0;
-    background-color: #333;
-    color: white;
-}
-
-/* Estilos del formulario */
-form {
-    background-color: #fff;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-    max-width: 600px;
-    margin: auto;
-    font-family: 'Arial', sans-serif;
-}
-
-form label {
-    display: block;
-    margin-bottom: 8px;
-    color: #333;
-}
-
-form input[type="text"],
-form input[type="email"],
-form textarea {
     width: 100%;
-    padding: 12px;
-    margin-bottom: 16px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    box-sizing: border-box;
-    font-family: 'Arial', sans-serif;
+    height: 100%;
+    top: 0;
+    left: 100%;
+    transition: left 1s ease, opacity 1s ease;
+    opacity: 0;
 }
 
-form button {
-    background-color: #333;
-    color: #fff;
-    padding: 14px 20px;
+.slide.active {
+    left: 0;
+    opacity: 1;
+}
+
+/* Estilos para la imagen expandida */
+.expanded-slide {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 80%;
+    height: 80%;
+    z-index: 1000;
+    background: rgba(0, 0, 0, 0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.expanded-slide img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: cover;
+}
+
+.close-button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: rgba(255, 255, 255, 0.7);
     border: none;
-    border-radius: 4px;
+    padding: 5px 10px;
     cursor: pointer;
     font-size: 16px;
-    font-family: 'Arial', sans-serif;
+    z-index: 1001;
 }
 
-form button:hover {
-    background-color: #555;
+/* Formulario de contacto */
+form {
+    display: flex;
+    flex-direction: column;
+    max-width: 600px;
+    margin: 0 auto;
 }
 
-/* Estilo adicional para hacer el formulario más atractivo */
-form .form-group {
-    margin-bottom: 20px;
+label {
+    margin-top: 1rem;
 }
 
-form .form-group label {
-    font-weight: bold;
+input, textarea, button {
+    padding: 0.5rem;
+    margin-top: 0.5rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
 }
 
-form .form-title {
-    font-size: 24px;
-    margin-bottom: 20px;
+button {
+    background-color: var(--primary-color);
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    margin-top: 1rem;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #293c5a;
+}
+
+/* Footer */
+footer {
+    background-color: var(--primary-color);
+    color: #fff;
     text-align: center;
-    color: #333;
+    padding: 1rem 0;
+    position: static;
+    width: 100%;
+}
+
+/* Estilos responsivos adicionales */
+@media (max-width: 768px) {
+    nav ul li a {
+        font-size: 1rem;
+    }
+
+    section h2 {
+        font-size: 1.5rem;
+    }
+
+    footer {
+        padding: 1rem 0.5rem;
+    }
 }
